@@ -13,7 +13,7 @@ export class FileEntity {
   id: number;
 
   @Column()
-  fileName: string;
+  filename: string;
 
   @Column()
   originalName: string;
