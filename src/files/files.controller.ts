@@ -1,5 +1,6 @@
 import {
   Controller,
+  Get,
   Post,
   ParseFilePipe,
   UseInterceptors,
@@ -15,6 +16,11 @@ import { fileStorage } from './storage';
 @ApiTags('Files')
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
+
+  @Get()
+  findAll() {
+    return this.filesService.findAll();
+  }
 
   @Post()
   @UseInterceptors(
