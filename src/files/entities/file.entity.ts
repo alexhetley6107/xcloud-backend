@@ -22,7 +22,7 @@ export class FileEntity {
   size: number;
 
   @Column()
-  mimeType: string;
+  mimetype: string;
 
   @ManyToOne(() => UserEntity, (user) => user.files)
   user: UserEntity;
