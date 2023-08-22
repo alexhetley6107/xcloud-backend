@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { UserEntity } from 'src/users/entities/user.entity';
 
 @Controller('auth')
 @ApiTags('Auth')
@@ -13,7 +14,7 @@ export class AuthController {
   @Post('login')
   @ApiBody({ type: CreateUserDto })
   async login(@Request() req) {
-    return req.user;
+    return this.authService.login(req.user as UserEntity);
   }
 
   @Post('/register')
